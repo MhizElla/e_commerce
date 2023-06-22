@@ -5,7 +5,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import useStyles from './styles';
 
 
-const Product = ({ product }) => {
+const Product = ({ product, onAddToCart }) => {
     const classes = useStyles();
     
     
@@ -25,14 +25,11 @@ const Product = ({ product }) => {
                 <Typography className={classes.price} variant='h6'>
                     {product.price.formatted_with_symbol}
                 </Typography>
-                <Typography className={classes.description} variant='body2' color="textSecondary">
-                    {product.description}
-                </Typography>
+                <Typography dangerouslySetInnerHTML={{ __html: product.description}} className={classes.description} variant='body2' color="textSecondary"/>
 
-        
             </CardContent>
             <CardActions disableSpacing className={classes.cardActions}>
-                <IconButton aria-label="Add to cart">
+                <IconButton aria-label="Add to cart" onClick={() => onAddToCart(product.id, 1)}>
                     <AddShoppingCartIcon  />
                 </IconButton>
 
