@@ -7,21 +7,23 @@ import useStyles from './styles';
 
 const Product = ({ product }) => {
     const classes = useStyles();
+    
+    
+
   return (
         <Card className={classes.root}>
             <CardMedia 
-                className={classes.media} 
-                image={product.image} 
-                title={product.name}
-                
-            />
+                className={classes.image}
+                image={product.image.url}
+                component='img' 
+                title={product.name}/>
             <CardContent className={classes.cardcontent}>
-                <Typography variant='h5' gutterBottom>
+                <Typography variant='h6' gutterBottom>
                     {product.name}
                 </Typography>
 
-                <Typography className={classes.price} variant='h5'>
-                    {product.price}
+                <Typography className={classes.price} variant='h6'>
+                    {product.price.formatted_with_symbol}
                 </Typography>
                 <Typography className={classes.description} variant='body2' color="textSecondary">
                     {product.description}

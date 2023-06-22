@@ -3,16 +3,10 @@ import { Grid } from '@mui/material';
 import Product from './Product/Product';
 import useStyles from './styles';
 
-const products = [
-    { id: 1, name: 'Shoes', description: 'Runing Shoes.',  price: '$5', image: 'https://ichef.bbci.co.uk/news/976/cpsprodpb/B9FF/production/_117751674_satan-shoes1.jpg.webp' },
-    { id: 2, name: 'Macbook', description: 'Apple Macbook.', price: '$10', image: 'https://cdn.wccftech.com/wp-content/uploads/2021/08/M1X-MacBook-Pro-768x384.jpg.webp' },
-    { id: 3, name: 'Phone', description: 'Apple Phone.', price: '$20', image: 'https://cdn.arstechnica.net/wp-content/uploads/2022/09/apple_iphone-12_super-retina-xdr-display_10132020-800x450.jpg' },
-    { id: 4, name: 'Macbook', description: 'Apple Macbook.', price: '$10', image: 'https://cdn.wccftech.com/wp-content/uploads/2021/08/M1X-MacBook-Pro-768x384.jpg.webp' },
-
-];
 
 
-const Products = () => {
+
+const Products = ({products}) => {
     const classes = useStyles();
 
     return (
