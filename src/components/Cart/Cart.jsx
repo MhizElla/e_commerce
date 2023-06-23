@@ -1,16 +1,20 @@
 import React from 'react'
 import { Container, Typography, Button, Grid } from '@mui/material'
-import { ClassNames } from '@emotion/react'
 
+
+
+
+import useStyle from "./style";
 const Cart = ({cart}) => {
-    const isEmpty = !cart.line_items.length;
+    const isEmpty = !cart || !cart.line_items || cart.line_items.length === 0;
+    const classes = useStyle();
     const EmptyCart = () => (
         <Typography variant='subtitle1'>You have no items in your shopping cart, start adding some!</Typography>
 
     );
     const FilledCart = () => (
         <>
-        <Grid container spacing={3}>
+        <Grid container spacing={4}>
             {cart.line_items.map((item) => (
                 <Grid item xs={12} sm={4} key={item.id}>
                     <div>{item.name}</div>
@@ -20,14 +24,13 @@ const Cart = ({cart}) => {
 
         </Grid>
         <div className={classes.cartDetail}>
-            <Typography variant='h4'>
-                subtotal: {cart.subtotal.formatted_with_symbol}
-
-            </Typography>
-
+            <Typography variant='h4'> subtotal: {cart.subtotal.formatted_with_symbol}</Typography>
+            <Button className={classes.emptyButton} size='large' type='button' variant='contained' color='secondary'>Empty Cart</Button>
+            <Button className={classes.checkoutButton} size='large' type='button' variant='contained' color='primary'>Checkout</Button>
         </div>
         </>
     )
+    if(!cart.line_items) return "loading....";
   return (
     <Container>
         <div className={classes.toolbar}/>
