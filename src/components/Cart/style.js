@@ -21,7 +21,7 @@ export default makeStyles((theme) => ({
   link: {
     textDecoration: 'none',
   },
-  cardDetails: {
+  cartDetails: {
     display: 'flex',
     marginTop: '10%',
     width: '100%',
