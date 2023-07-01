@@ -5,6 +5,7 @@ import {commerce} from './lib/commerce';
 import { Products, Navbar, Cart, Checkout } from './components';
 import { BrowserRouter as Router, Routes, Route}  from 'react-router-dom';
 
+
 const App = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
@@ -62,12 +63,13 @@ const App = () => {
               />
             }
           />
-          <Route exact path="/checkout" element={<Checkout />} />
+          <Route exact path="/checkout" element={<Checkout cart={cart}/>} />
         </Routes>
       </div>
     </Router>
    
   )
 }
+
 
 export default App;
