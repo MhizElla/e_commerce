@@ -6,14 +6,14 @@ const Review = ({ checkoutTaken }) => {
     <>
         <Typography variant='h6' gutterBottom>Order Summary</Typography>
         <List disablePadding>
-            {checkoutTaken?.live?.line?.items?.map((product) => (
+            {checkoutTaken.line_items.map((product) => (
                 <ListItem style={{ padding: '10px 0' }} key={product.name}>
                     <ListItemText
                         primary={product.name}
                         secondary={`quantity: ${product.quantity}`}
                     />
                     <Typography variant="body2">
-                        {product.line_total?.formatted_with_symbol}
+                        {product.line_total.formatted_with_symbol}
                     </Typography>
                 </ListItem>
             ))}
@@ -21,10 +21,8 @@ const Review = ({ checkoutTaken }) => {
             <ListItem style={{padding: '10px 0'}}>
                 <ListItemText primary="Total"/>
                 <Typography variant='subtitle1' style={{fontWeight: 700}}>
-                    {checkoutTaken?.live?.subtotal?.formatted_with_symbol}
+                    {checkoutTaken.subtotal.formatted_with_symbol}
                 </Typography>
-
-
             </ListItem>
         </List>
       

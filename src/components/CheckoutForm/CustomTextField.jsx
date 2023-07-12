@@ -16,6 +16,7 @@ const CustomTextField = ({ name, label, required }) => {
             required={required}
           />
         )}
+        defaultValue=""
         control={control}
         name={name}
       />
